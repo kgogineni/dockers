@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV PYTHON_VERSION 2.7.13
 
 ARG ucs
-ENV ucs ${ucs:-usc4}
+ENV ucs ${ucs:- usc4}
 
 RUN echo Configure ucs type : $ucs
 
