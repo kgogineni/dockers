@@ -5,11 +5,6 @@ MAINTAINER Krishnaiah Gogineni <krishna.gogineni@gmail.com>
 ENV DEBIAN_FRONTEND noninteractive
 ENV PYTHON_VERSION 2.7.13
 
-ARG ucs
-ENV ucs ${ucs:- ucs4}
-
-RUN echo Configure ucs type : $ucs
-
 ARG dir
 ENV dir ${dir:- /opt/}
 
@@ -36,12 +31,12 @@ RUN wget https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSIO
 WORKDIR /opt/
 RUN tar -xzf Python-$PYTHON_VERSION.tgz \
     && cd Python-2.7.13 \
-    && sudo ./configure --enable-shared --enable-unicode=$ucs \
+    && sudo ./configure --enable-unicode=ucs4 \
     && sudo make install \
     && sudo make altinstall
 
 #Clean up all the unnecessary files
-RUN rm -rf /opt/Python*
+#RUN rm -rf /opt/Python*
 RUN apt-get purge -y --auto-remove
 
 #Lets install the app now...
