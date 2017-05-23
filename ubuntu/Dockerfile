@@ -43,7 +43,7 @@ RUN apt-get purge -y --auto-remove
 RUN mkdir -p $dir/$app
 
 
-WORKDIR $dir/$app/
+ONBUILD WORKDIR $dir/$app/
 
 RUN echo application is being installed at : $dir/$app/
 
