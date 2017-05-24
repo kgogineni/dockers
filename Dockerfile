@@ -5,13 +5,13 @@ MAINTAINER Krishnaiah Gogineni <krishna.gogineni@gmail.com>
 ENV DEBIAN_FRONTEND noninteractive
 ENV PYTHON_VERSION 2.7.13
 
-ARG dir
-ENV dir ${dir:- /opt/}
+ONBUILD ARG dir
+ONBUILD ENV dir ${dir:- /opt/}
 
 RUN echo Configure installation dir : $dir
 
-ARG app
-ENV app ${app:- app}
+ONBUILD ARG app
+ONBUILD ENV app ${app:- app}
 
 RUN echo Configure application name : $app
 
