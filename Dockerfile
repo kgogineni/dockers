@@ -8,12 +8,12 @@ ENV PYTHON_VERSION 2.7.13
 ONBUILD ARG dir
 ONBUILD ENV dir ${dir:- /opt/}
 
-RUN echo Configure installation dir : $dir
+ONBUILD RUN echo Configure installation dir : $dir
 
 ONBUILD ARG app
 ONBUILD ENV app ${app:- app}
 
-RUN echo Configure application name : $app
+ONBUILD RUN echo Configure application name : $app
 
 RUN apt-get -y -q update
 
@@ -45,7 +45,7 @@ RUN mkdir -p $dir/$app
 
 ONBUILD WORKDIR $dir/$app/
 
-RUN echo application is being installed at : $dir/$app/
+ONBUILD RUN echo application is being installed at : $dir/$app/
 
 ONBUILD COPY ./ $dir/$app/
 
