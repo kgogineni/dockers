@@ -21,9 +21,9 @@ RUN apt-get -q --force-yes install -y \
     wget ntp build-essential checkinstall \
     libffi-dev libssl-dev python-dev \
     libreadline-gplv2-dev libncursesw5-dev libssl-dev \
-    libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev \
-    python-setuptools
-
+    libsqlite3-dev libmysqlclient-dev gcc tcl tcl-dev tk-dev \
+    libgdbm-dev libc6-dev libbz2-dev python-setuptools
+    
 RUN easy_install pip
 RUN pip --no-cache-dir install virtualenv
 
