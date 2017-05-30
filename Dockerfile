@@ -18,12 +18,8 @@ ENV PYTHON_VERSION 2.7.13
 RUN apt-get -y -q update
 
 RUN apt-get -q --force-yes install -y \
-    wget ntp build-essential checkinstall \
-    libffi-dev libssl-dev python-dev \
-    libreadline-gplv2-dev libncursesw5-dev libssl-dev \
-    libsqlite3-dev libmysqlclient-dev gcc tcl tcl-dev tk-dev \
-    libgdbm-dev libc6-dev libbz2-dev python-setuptools
-    
+    wget ntp build-essential python-setuptools
+
 RUN easy_install pip
 RUN pip --no-cache-dir install virtualenv
 
